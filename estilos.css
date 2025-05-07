@@ -1,0 +1,249 @@
+/* Fondo y Diseño General */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: url('imagenes/descarga.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease;
+}
+
+/* Encabezado */
+header {
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  padding: 80px 20px 60px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  color: #fff;
+  letter-spacing: 2px;
+  transition: transform 0.3s ease;
+}
+
+header:hover h1 {
+  transform: scale(1.1); /* Efecto de zoom al pasar el ratón sobre el encabezado */
+}
+
+/* Navegación */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff7f50;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Sección con imágenes de hamburguesa a los lados */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #000; /* Fondo sólido */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(100px);
+  animation: fadeInUp 0.8s forwards;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-5px);
+}
+
+.section h2 {
+  color: #ff3c00;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.section ul {
+  padding-left: 20px;
+}
+
+/* Imágenes de hamburguesa a los lados */
+.section::before, .section::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.section::before {
+  left: -120px;
+  background-image: url('imagenes/hamburguesa1.jpg'); /* Imagen de hamburguesa a la izquierda */
+}
+
+.section::after {
+  right: -120px;
+  background-image: url('imagenes/hamburguesa2.jpg'); /* Imagen de hamburguesa a la derecha */
+}
+
+footer {
+  background-color: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 60px;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto Parallax */
+body {
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cambiar el fondo con hover */
+header:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* Cambio de color en hover */
+}
+
+/* Opcional: Sombra sutil cuando pasas el ratón por encima */
+.section:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Media Queries para hacer la página responsive */
+
+/* Ajustar el header para pantallas pequeñas */
+@media (max-width: 768px) {
+  header {
+    padding: 60px 20px 40px; /* Reducir el padding */
+  }
+
+  header h1 {
+    font-size: 2.5rem; /* Ajustar el tamaño del encabezado */
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    font-size: 1.2rem; /* Aumentar el tamaño de los enlaces en pantallas pequeñas */
+  }
+}
+
+/* Ajustes para secciones */
+@media (max-width: 768px) {
+  .section {
+    max-width: 100%; /* Hacer que las secciones ocupen todo el ancho */
+    padding: 40px 20px; /* Reducir el padding */
+    margin: 20px 0; /* Reducir el margen */
+  }
+
+  .section::before, .section::after {
+    width: 80px; /* Reducir el tamaño de las imágenes de hamburguesas */
+    height: 80px;
+    left: -90px;
+    right: -90px;
+  }
+
+  footer {
+    font-size: 0.8rem; /* Reducir el tamaño de la fuente del footer */
+  }
+}
+
+/* Ajustes para dispositivos móviles muy pequeños */
+@media (max-width: 480px) {
+  header {
+    padding: 50px 10px 30px; /* Ajustar padding para pantallas aún más pequeñas */
+  }
+
+  header h1 {
+    font-size: 2rem; /* Ajustar el tamaño del encabezado */
+  }
+
+  nav a {
+    font-size: 1rem; /* Reducir el tamaño de los enlaces */
+  }
+
+  .section h2 {
+    font-size: 1.5rem; /* Ajustar el tamaño de los títulos */
+  }
+
+  .section::before, .section::after {
+    width: 70px; /* Reducir aún más el tamaño de las imágenes de hamburguesas */
+    height: 70px;
+    left: -70px;
+    right: -70px;
+  }
+
+  footer {
+    font-size: 0.7rem; /* Reducir tamaño de fuente en footer */
+  }
+}
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+:root {
+    scroll-padding-top: 200px; /* ajusta si tu header tiene más o menos altura */
+  }
+  
